@@ -4,6 +4,7 @@ import Header from './components/Header';
 import SearchBar from './components/SearchBar';
 import BoardGrid from './components/BoardGrid';
 import Footer from './components/Footer';
+import Banner from './components/Banner';
 
 // fake data for boards
 const sampleBoards = [
@@ -49,6 +50,7 @@ function App() {
   return (
     <div className="App">
       <Header />
+      <Banner />
       <main className="main-content">
         <SearchBar />
         <BoardGrid boards={sampleBoards} />
