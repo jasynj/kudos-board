@@ -2,7 +2,13 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 import './BoardCard.css';
 
-const BoardCard = ({ board }) => {
+const BoardCard = ({ board, onDelete }) => {
+  const handleDelete = () => {
+    if (window.confirm(`Are you sure you want to delete "${board.title}"?`)) {
+      onDelete();
+    }
+  };
+
   return (
     <div className="board-card">
       <div className="board-image-container">
@@ -16,7 +22,7 @@ const BoardCard = ({ board }) => {
         <h3 className="board-title">{board.title}</h3>
         <div className="board-actions">
           <Link to={`/board/${board.id}`} className="view-btn">View</Link>
-          <button className="delete-btn">Delete</button>
+          <button className="delete-btn" onClick={handleDelete}>Delete</button>
         </div>
       </div>
     </div>

@@ -1,16 +1,13 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import './App.css';
 import Header from './components/Header';
-import SearchBar from './components/SearchBar';
-import BoardGrid from './components/BoardGrid';
 import Footer from './components/Footer';
-import Banner from './components/Banner';
-import NavBar from './components/NavBar';
 import BoardView from './components/BoardView';
+import HomePage from './components/HomePage';
 
 // Sample data for boards
-const sampleBoards = [
+const initialBoards = [
   {
     id: '1',
     title: 'Welcome to Kudos Board',
@@ -81,22 +78,27 @@ const sampleBoards = [
 ];
 
 function App() {
+  const [boards, setBoards] = useState(initialBoards);
+  const [showForm, setShowForm] = useState(false);
+
+  const toggleForm = () => {
+    setShowForm(!showForm);
+  };
+
   return (
     <Router>
       <div className="App">
-        <Header />
+        <Header onToggleForm={toggleForm} showForm={showForm} />
         <Routes>
           <Route path="/" element={
-            <>
-              <Banner />
-              <main className="main-content">
-                <SearchBar />
-                <NavBar />
-                <BoardGrid boards={sampleBoards} />
-              </main>
-            </>
+            <HomePage
+              boards={boards}
+              setBoards={setBoards}
+              showForm={showForm}
+              setShowForm={setShowForm}
+            />
           } />
-          <Route path="/board/:id" element={<BoardView boards={sampleBoards} />} />
+          <Route path="/board/:id" element={<BoardView boards={boards} />} />
         </Routes>
         <Footer />
       </div>

@@ -1,6 +1,6 @@
 import './Header.css';
 
-const Header = () => {
+const Header = ({ onToggleForm, showForm }) => {
   return (
     <header className="header">
       <div className="container header-container">
@@ -15,7 +15,12 @@ const Header = () => {
           </ul>
         </nav>
         <div className="user-actions">
-          <button className="btn btn-primary">Create Board</button>
+          <button
+            className="btn btn-primary"
+            onClick={onToggleForm}
+          >
+            {showForm ? 'Cancel' : 'Create Board'}
+          </button>
           <button className="btn btn-secondary">Login</button>
         </div>
       </div>
