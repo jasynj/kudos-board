@@ -1,4 +1,5 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 import './BoardCard.css';
 
 const BoardCard = ({ board }) => {
@@ -14,7 +15,7 @@ const BoardCard = ({ board }) => {
       <div className="board-content">
         <h3 className="board-title">{board.title}</h3>
         <div className="board-actions">
-          <button className="view-btn">View</button>
+          <Link to={`/board/${board.id}`} className="view-btn">View</Link>
           <button className="delete-btn">Delete</button>
         </div>
       </div>

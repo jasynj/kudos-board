@@ -1,4 +1,5 @@
 import React from 'react';
+import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import './App.css';
 import Header from './components/Header';
 import SearchBar from './components/SearchBar';
@@ -6,8 +7,9 @@ import BoardGrid from './components/BoardGrid';
 import Footer from './components/Footer';
 import Banner from './components/Banner';
 import NavBar from './components/NavBar';
+import BoardView from './components/BoardView';
 
-// fake data for boards
+// Sample data for boards
 const sampleBoards = [
   {
     id: '1',
@@ -16,7 +18,21 @@ const sampleBoards = [
     category: 'welcome',
     description: 'A place to share appreciation and celebrate achievements',
     author: 'Admin',
-    createdAt: new Date().toISOString()
+    createdAt: new Date().toISOString(),
+    cards: [
+      {
+        id: '101',
+        content: 'Thank you for creating this amazing platform!',
+        author: 'John Doe',
+        createdAt: new Date().toISOString()
+      },
+      {
+        id: '102',
+        content: 'Excited to use this for our team recognition!',
+        author: 'Jane Smith',
+        createdAt: new Date().toISOString()
+      }
+    ]
   },
   {
     id: '2',
@@ -25,7 +41,15 @@ const sampleBoards = [
     category: 'celebration',
     description: 'Celebrate our team accomplishments',
     author: 'Team Lead',
-    createdAt: new Date().toISOString()
+    createdAt: new Date().toISOString(),
+    cards: [
+      {
+        id: '201',
+        content: 'Congratulations on shipping the new feature!',
+        author: 'Manager',
+        createdAt: new Date().toISOString()
+      }
+    ]
   },
   {
     id: '3',
@@ -34,7 +58,8 @@ const sampleBoards = [
     category: 'thank you',
     description: 'Express gratitude to your colleagues',
     author: 'HR Department',
-    createdAt: new Date().toISOString()
+    createdAt: new Date().toISOString(),
+    cards: []
   },
   {
     id: '4',
@@ -43,22 +68,39 @@ const sampleBoards = [
     category: 'inspiration',
     description: 'Share inspiring quotes and stories',
     author: 'Creative Team',
-    createdAt: new Date().toISOString()
+    createdAt: new Date().toISOString(),
+    cards: [
+      {
+        id: '401',
+        content: '"The best way to predict the future is to create it." - Abraham Lincoln',
+        author: 'Motivational Speaker',
+        createdAt: new Date().toISOString()
+      }
+    ]
   }
 ];
 
 function App() {
   return (
-    <div className="App">
-      <Header />
-      <Banner />
-      <main className="main-content">
-        <SearchBar />
-        <NavBar />
-        <BoardGrid boards={sampleBoards} />
-      </main>
-      <Footer />
-    </div>
+    <Router>
+      <div className="App">
+        <Header />
+        <Routes>
+          <Route path="/" element={
+            <>
+              <Banner />
+              <main className="main-content">
+                <SearchBar />
+                <NavBar />
+                <BoardGrid boards={sampleBoards} />
+              </main>
+            </>
+          } />
+          <Route path="/board/:id" element={<BoardView boards={sampleBoards} />} />
+        </Routes>
+        <Footer />
+      </div>
+    </Router>
   );
 }
 
