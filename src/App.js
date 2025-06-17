@@ -21,13 +21,17 @@ const initialBoards = [
         id: '101',
         content: 'Thank you for creating this amazing platform!',
         author: 'John Doe',
-        createdAt: new Date().toISOString()
+        createdAt: new Date().toISOString(),
+        gifUrl: 'https://via.placeholder.com/150?text=Thank+You',
+        upvotes: 5
       },
       {
         id: '102',
         content: 'Excited to use this for our team recognition!',
         author: 'Jane Smith',
-        createdAt: new Date().toISOString()
+        createdAt: new Date().toISOString(),
+        gifUrl: 'https://via.placeholder.com/150?text=Excited',
+        upvotes: 3
       }
     ]
   },
@@ -44,7 +48,9 @@ const initialBoards = [
         id: '201',
         content: 'Congratulations on shipping the new feature!',
         author: 'Manager',
-        createdAt: new Date().toISOString()
+        createdAt: new Date().toISOString(),
+        gifUrl: 'https://via.placeholder.com/150?text=Congrats',
+        upvotes: 8
       }
     ]
   },
@@ -71,7 +77,9 @@ const initialBoards = [
         id: '401',
         content: '"The best way to predict the future is to create it." - Abraham Lincoln',
         author: 'Motivational Speaker',
-        createdAt: new Date().toISOString()
+        createdAt: new Date().toISOString(),
+        gifUrl: 'https://via.placeholder.com/150?text=Inspiration',
+        upvotes: 12
       }
     ]
   }
@@ -98,7 +106,12 @@ function App() {
               setShowForm={setShowForm}
             />
           } />
-          <Route path="/board/:id" element={<BoardView boards={boards} />} />
+          <Route path="/board/:id" element={
+            <BoardView
+              boards={boards}
+              setBoards={setBoards}
+            />
+          } />
         </Routes>
         <Footer />
       </div>

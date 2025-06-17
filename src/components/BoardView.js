@@ -2,13 +2,15 @@ import React, { useState } from 'react';
 import { useParams, Link } from 'react-router-dom';
 import './BoardView.css';
 
-const BoardView = ({ boards }) => {
+const BoardView = ({ boards, setBoards }) => {
   const { id } = useParams();
-  const [newCard, setNewCard] = useState({ content: '', author: '' });
-
+  const [newCard, setNewCard] = useState({
+    content: '',
+    author: '',
+    gifUrl: 'https://via.placeholder.com/150?text=GIF'
+  });
 
   const board = boards.find(board => board.id === id);
-
 
   if (!board) {
     return (
@@ -31,11 +33,79 @@ const BoardView = ({ boards }) => {
     });
   };
 
+  // Function to add a new card to a board
+  const addCard = (boardId, newCard) => {
+    setBoards(boards.map(board => {
+      if (board.id === boardId) {
+        return {
+          ...board,
+          cards: [
+            ...board.cards,
+            {
+              ...newCard,
+              id: Date.now().toString(),
+              createdAt: new Date().toISOString(),
+              upvotes: 0
+            }
+          ]
+        };
+      }
+      return board;
+    }));
+  };
+
+  // Function to delete a card from a board
+  const deleteCard = (boardId, cardId) => {
+    setBoards(boards.map(board => {
+      if (board.id === boardId) {
+        return {
+          ...board,
+          cards: board.cards.filter(card => card.id !== cardId)
+        };
+      }
+      return board;
+    }));
+  };
+
+  // Function to upvote a card
+  const upvoteCard = (boardId, cardId) => {
+    setBoards(boards.map(board => {
+      if (board.id === boardId) {
+        return {
+          ...board,
+          cards: board.cards.map(card => {
+            if (card.id === cardId) {
+              return {
+                ...card,
+                upvotes: (card.upvotes || 0) + 1
+              };
+            }
+            return card;
+          })
+        };
+      }
+      return board;
+    }));
+  };
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    console.log('New card:', newCard);
-    setNewCard({ content: '', author: '' });
+    addCard(board.id, newCard);
+    setNewCard({
+      content: '',
+      author: '',
+      gifUrl: 'https://via.placeholder.com/150?text=GIF'
+    });
+  };
+
+  const handleDeleteCard = (cardId) => {
+    if (window.confirm('Are you sure you want to delete this card?')) {
+      deleteCard(board.id, cardId);
+    }
+  };
+
+  const handleUpvote = (cardId) => {
+    upvoteCard(board.id, cardId);
   };
 
   return (
@@ -46,15 +116,40 @@ const BoardView = ({ boards }) => {
         <p>{board.description}</p>
       </div>
 
-      <div className="board-cards">
+      <div className="board-cards-section">
         <h2>Cards</h2>
 
         {board.cards && board.cards.length > 0 ? (
-          <div className="card-list">
+          <div className="card-grid">
             {board.cards.map(card => (
               <div key={card.id} className="card">
-                <p className="card-content">{card.content}</p>
-                <p className="card-author">- {card.author}</p>
+                <div className="card-gif">
+                  <img
+                    src={card.gifUrl || 'https://via.placeholder.com/150?text=GIF'}
+                    alt="Card GIF"
+                  />
+                </div>
+                <div className="card-content">
+                  <p>{card.content}</p>
+                  <p className="card-author">- {card.author}</p>
+                </div>
+                <div className="card-actions">
+                  <div className="upvotes">
+                    <button
+                      className="upvote-btn"
+                      onClick={() => handleUpvote(card.id)}
+                    >
+                      👍
+                    </button>
+                    <span>{card.upvotes || 0}</span>
+                  </div>
+                  <button
+                    className="delete-btn"
+                    onClick={() => handleDeleteCard(card.id)}
+                  >
+                    Delete
+                  </button>
+                </div>
               </div>
             ))}
           </div>
@@ -62,7 +157,6 @@ const BoardView = ({ boards }) => {
           <p className="no-cards">No cards yet. Be the first to add one!</p>
         )}
       </div>
-
 
       <div className="add-card-section">
         <h2>Add a New Card</h2>
@@ -87,6 +181,18 @@ const BoardView = ({ boards }) => {
               value={newCard.author}
               onChange={handleInputChange}
               required
+            />
+          </div>
+
+          <div className="form-group">
+            <label htmlFor="gifUrl">GIF URL (optional):</label>
+            <input
+              type="text"
+              id="gifUrl"
+              name="gifUrl"
+              value={newCard.gifUrl}
+              onChange={handleInputChange}
+              placeholder="https://example.com/gif.gif"
             />
           </div>
 
