@@ -1,0 +1,30 @@
+.NavBar
+{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+    margin: 50px 0px;
+}
+
+.navbar-btn
+{
+    /* background-color: #61dafb; */
+    padding: 12px 24px;
+    /* font-weight: 400; */
+    background-color: #61dafb;
+    color: #4d5057;
+    border: none;
+    border-radius: 40px;
+    font-size: 1rem;
+    cursor: pointer;
+    /* transition: background-color 0.3s; */
+    transition: all 0.3s ease-in-out;
+
+}
+
+.navbar-btn:hover
+{
+    background-color: #4fa8d1;
+    color: #fff;
+}

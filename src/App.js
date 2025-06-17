@@ -5,6 +5,7 @@ import SearchBar from './components/SearchBar';
 import BoardGrid from './components/BoardGrid';
 import Footer from './components/Footer';
 import Banner from './components/Banner';
+import NavBar from './components/NavBar';
 
 // fake data for boards
 const sampleBoards = [
@@ -53,6 +54,7 @@ function App() {
       <Banner />
       <main className="main-content">
         <SearchBar />
+        <NavBar />
         <BoardGrid boards={sampleBoards} />
       </main>
       <Footer />
