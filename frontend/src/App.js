@@ -11,7 +11,7 @@ const initialBoards = [
   {
     id: '1',
     title: 'Welcome to Kudos Board',
-    image: 'https://via.placeholder.com/300x200?text=Welcome',
+    image: '/img/placeholder1.png',
     category: 'welcome',
     description: 'A place to share appreciation and celebrate achievements',
     author: 'Admin',
@@ -38,7 +38,7 @@ const initialBoards = [
   {
     id: '2',
     title: 'Team Celebration',
-    image: 'https://via.placeholder.com/300x200?text=Celebration',
+    image: './img/placeholder1.png',
     category: 'celebration',
     description: 'Celebrate our team accomplishments',
     author: 'Team Lead',
@@ -57,7 +57,7 @@ const initialBoards = [
   {
     id: '3',
     title: 'Thank You Notes',
-    image: 'https://via.placeholder.com/300x200?text=Thank+You',
+    image: './img/placeholder1.png',
     category: 'thank you',
     description: 'Express gratitude to your colleagues',
     author: 'HR Department',
@@ -67,7 +67,7 @@ const initialBoards = [
   {
     id: '4',
     title: 'Inspiration Wall',
-    image: 'https://via.placeholder.com/300x200?text=Inspiration',
+    image: './img/placeholder1.png',
     category: 'inspiration',
     description: 'Share inspiring quotes and stories',
     author: 'Creative Team',

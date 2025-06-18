@@ -11,8 +11,7 @@ const HomePage = ({ boards, setBoards, showForm, setShowForm }) => {
       ...newBoard,
       id: Date.now().toString(),
       createdAt: new Date().toISOString(),
-      cards: [],
-      image: `https://via.placeholder.com/300x200?text=${encodeURIComponent(newBoard.title)}`
+      cards: []
     };
 
     setBoards([...boards, boardToAdd]);

@@ -1,10 +1,20 @@
 .NavBar
 {
     display: flex;
+    width: 100vw;
     align-items: center;
     justify-content: space-between;
-
+    padding-bottom: 20px;
     margin: 50px 0px;
+    border-bottom: 1px solid #e1e4e8;
+}
+
+.navbar-container
+{
+    margin: 0 auto;
+    max-width: 1200px;
+    display: flex;
+    gap: 25px;
 }
 
 .navbar-btn
