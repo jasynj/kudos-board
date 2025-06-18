@@ -16,3 +16,8 @@ yarn-debug.log*
 yarn-error.log*
 
 /src/generated/prisma
+
+node_modules/
+.env
+prisma/dev.db
+
