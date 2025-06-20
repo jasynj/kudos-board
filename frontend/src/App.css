@@ -9,7 +9,6 @@
   flex: 1;
   padding: 20px;
   background-color: #f0f8ff;
-  /* max-width: 1200px; */
   margin: 0 auto;
   width: 100%;
 }
@@ -49,9 +48,7 @@
   }
 }
 
-/* Global Theme Styles */
 :root {
-  /* Light theme colors */
   --light-bg-primary: #ffffff;
   --light-bg-secondary: #f8f9fa;
   --light-bg-tertiary: #e9ecef;
@@ -72,7 +69,8 @@
   --dark-shadow: rgba(0, 0, 0, 0.3);
 
   /* Accent colors (same for both themes) */
-  --accent-primary: #3498db;
+  --accent-primary: #61dafb;
+  --accent-secondary: #4fa8d1;
   --accent-success: #27ae60;
   --accent-danger: #e74c3c;
   --accent-warning: #f39c12;
