@@ -3,25 +3,33 @@ import SearchBar from './SearchBar';
 import NavBar from './NavBar';
 import BoardForm from './BoardForm';
 import BoardGrid from './BoardGrid';
+import ThemeToggle from './ThemeToggle';
+import { boardAPI } from '../services/api';
+import './HomePage.css';
 
 const HomePage = ({ boards, setBoards, showForm, setShowForm }) => {
   const [activeCategory, setActiveCategory] = useState('all');
   const [searchQuery, setSearchQuery] = useState('');
 
-  const addBoard = (newBoard) => {
-    const boardToAdd = {
-      ...newBoard,
-      id: Date.now().toString(),
-      createdAt: new Date().toISOString(),
-      cards: []
-    };
-
-    setBoards([...boards, boardToAdd]);
-    setShowForm(false);
+  const addBoard = async (newBoard) => {
+    try {
+      const createdBoard = await boardAPI.createBoard(newBoard);
+      setBoards([...boards, createdBoard]);
+      setShowForm(false);
+    } catch (error) {
+      console.error('Failed to create board:', error);
+      alert('Failed to create board. Please try again.');
+    }
   };
 
-  const deleteBoard = (boardId) => {
-    setBoards(boards.filter(board => board.id !== boardId));
+  const deleteBoard = async (boardId) => {
+    try {
+      await boardAPI.deleteBoard(boardId);
+      setBoards(boards.filter(board => board.id !== parseInt(boardId)));
+    } catch (error) {
+      console.error('Failed to delete board:', error);
+      alert('Failed to delete board. Please try again.');
+    }
   };
 
   const handleCategoryChange = (category) => {
@@ -58,6 +66,9 @@ const HomePage = ({ boards, setBoards, showForm, setShowForm }) => {
   return (
     <>
       <main className="main-content">
+        <div className="page-header">
+          <ThemeToggle />
+        </div>
         <SearchBar onSearch={handleSearch} />
         <NavBar
           activeCategory={activeCategory}

@@ -1,0 +1,80 @@
+.theme-toggle-btn {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 8px 16px;
+  border: 2px solid;
+  border-radius: 25px;
+  background: transparent;
+  cursor: pointer;
+  font-size: 14px;
+  font-weight: 500;
+  transition: all 0.3s ease;
+  position: relative;
+  overflow: hidden;
+}
+
+/* Light theme styles */
+.light-theme .theme-toggle-btn {
+  color: #2c3e50;
+  border-color: #2c3e50;
+}
+
+.light-theme .theme-toggle-btn:hover {
+  background-color: #2c3e50;
+  color: #ffffff;
+  transform: translateY(-2px);
+  box-shadow: 0 4px 8px rgba(44, 62, 80, 0.2);
+}
+
+/* Dark theme styles */
+.dark-theme .theme-toggle-btn {
+  color: #ecf0f1;
+  border-color: #ecf0f1;
+}
+
+.dark-theme .theme-toggle-btn:hover {
+  background-color: #ecf0f1;
+  color: #2c3e50;
+  transform: translateY(-2px);
+  box-shadow: 0 4px 8px rgba(236, 240, 241, 0.2);
+}
+
+.theme-icon {
+  font-size: 16px;
+  display: flex;
+  align-items: center;
+}
+
+.theme-text {
+  font-family: inherit;
+  white-space: nowrap;
+}
+
+/* Focus styles for accessibility */
+.theme-toggle-btn:focus {
+  outline: none;
+  box-shadow: 0 0 0 3px rgba(66, 153, 225, 0.5);
+}
+
+/* Active state */
+.theme-toggle-btn:active {
+  transform: translateY(0);
+}
+
+/* Responsive design */
+@media (max-width: 480px) {
+  .theme-toggle-btn {
+    padding: 6px 12px;
+    font-size: 12px;
+    gap: 6px;
+  }
+
+  .theme-icon {
+    font-size: 14px;
+  }
+
+  .theme-text {
+    display: none;
+  }
+}

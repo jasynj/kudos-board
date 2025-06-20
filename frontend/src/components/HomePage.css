@@ -1,0 +1,14 @@
+.page-header {
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+  margin-bottom: 20px;
+  padding: 10px 0;
+}
+
+@media (max-width: 768px) {
+  .page-header {
+    justify-content: center;
+    margin-bottom: 15px;
+  }
+}

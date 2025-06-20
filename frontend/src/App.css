@@ -48,3 +48,166 @@
     padding: 10px;
   }
 }
+
+/* Global Theme Styles */
+:root {
+  /* Light theme colors */
+  --light-bg-primary: #ffffff;
+  --light-bg-secondary: #f8f9fa;
+  --light-bg-tertiary: #e9ecef;
+  --light-text-primary: #2c3e50;
+  --light-text-secondary: #5a6c7d;
+  --light-text-muted: #6c757d;
+  --light-border: #dee2e6;
+  --light-shadow: rgba(0, 0, 0, 0.1);
+
+  /* Dark theme colors */
+  --dark-bg-primary: #1a1a1a;
+  --dark-bg-secondary: #2d2d2d;
+  --dark-bg-tertiary: #404040;
+  --dark-text-primary: #ecf0f1;
+  --dark-text-secondary: #bdc3c7;
+  --dark-text-muted: #95a5a6;
+  --dark-border: #4a4a4a;
+  --dark-shadow: rgba(0, 0, 0, 0.3);
+
+  /* Accent colors (same for both themes) */
+  --accent-primary: #3498db;
+  --accent-success: #27ae60;
+  --accent-danger: #e74c3c;
+  --accent-warning: #f39c12;
+}
+
+/* Light theme */
+.light-theme {
+  background-color: var(--light-bg-primary);
+  color: var(--light-text-primary);
+  transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+.light-theme * {
+  border-color: var(--light-border);
+}
+
+/* Dark theme */
+.dark-theme {
+  background-color: var(--dark-bg-primary);
+  color: var(--dark-text-primary);
+  transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+.dark-theme * {
+  border-color: var(--dark-border);
+}
+
+/* Light theme app styles */
+.light-theme .App {
+  background-color: var(--light-bg-primary);
+  color: var(--light-text-primary);
+}
+
+.light-theme .main-content {
+  background-color: var(--light-bg-secondary);
+  color: var(--light-text-primary);
+}
+
+/* Dark theme app styles */
+.dark-theme .App {
+  background-color: var(--dark-bg-primary);
+  color: var(--dark-text-primary);
+}
+
+.dark-theme .main-content {
+  background-color: var(--dark-bg-secondary);
+  color: var(--dark-text-primary);
+}
+
+/* Global text styles */
+.light-theme h1, .light-theme h2, .light-theme h3, .light-theme h4, .light-theme h5, .light-theme h6 {
+  color: var(--light-text-primary);
+}
+
+.dark-theme h1, .dark-theme h2, .dark-theme h3, .dark-theme h4, .dark-theme h5, .dark-theme h6 {
+  color: var(--dark-text-primary);
+}
+
+.light-theme p, .light-theme span, .light-theme div {
+  color: var(--light-text-primary);
+}
+
+.dark-theme p, .dark-theme span, .dark-theme div {
+  color: var(--dark-text-primary);
+}
+
+/* Link styles */
+.light-theme a {
+  color: var(--accent-primary);
+}
+
+.dark-theme a {
+  color: #5dade2;
+}
+
+.light-theme a:hover {
+  color: #2980b9;
+}
+
+.dark-theme a:hover {
+  color: #85c1e9;
+}
+
+/* Input and form styles */
+.light-theme input, .light-theme textarea, .light-theme select {
+  background-color: var(--light-bg-primary);
+  color: var(--light-text-primary);
+  border: 1px solid var(--light-border);
+}
+
+.dark-theme input, .dark-theme textarea, .dark-theme select {
+  background-color: var(--dark-bg-secondary);
+  color: var(--dark-text-primary);
+  border: 1px solid var(--dark-border);
+}
+
+.light-theme input:focus, .light-theme textarea:focus, .light-theme select:focus {
+  border-color: var(--accent-primary);
+  box-shadow: 0 0 0 2px rgba(52, 152, 219, 0.2);
+}
+
+.dark-theme input:focus, .dark-theme textarea:focus, .dark-theme select:focus {
+  border-color: #5dade2;
+  box-shadow: 0 0 0 2px rgba(93, 173, 226, 0.2);
+}
+
+/* Button styles */
+.light-theme button {
+  color: var(--light-text-primary);
+  border: 1px solid var(--light-border);
+}
+
+.dark-theme button {
+  color: var(--dark-text-primary);
+  border: 1px solid var(--dark-border);
+}
+
+/* Card/container styles */
+.light-theme .card, .light-theme .container, .light-theme .board-card {
+  background-color: var(--light-bg-primary);
+  border: 1px solid var(--light-border);
+  box-shadow: 0 2px 4px var(--light-shadow);
+}
+
+.dark-theme .card, .dark-theme .container, .dark-theme .board-card {
+  background-color: var(--dark-bg-secondary);
+  border: 1px solid var(--dark-border);
+  box-shadow: 0 2px 4px var(--dark-shadow);
+}
+
+/* Loading styles */
+.light-theme .loading {
+  color: var(--light-text-secondary);
+}
+
+.dark-theme .loading {
+  color: var(--dark-text-secondary);
+}

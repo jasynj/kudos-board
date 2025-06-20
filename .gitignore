@@ -1,25 +1,30 @@
-# dependencies
-/node_modules
+# === Node ===
+node_modules/
 backend/node_modules/
+frontend/node_modules/
 
-/.pnp
-.pnp.js
+# === Build artifacts ===
+build/
+frontend/build/
+frontend/dist/
 
-# build
-/build
-
-# misc
-.DS_Store
+# === Environment files ===
 .env
 .env.local
 .env.*.local
+backend/.env
+frontend/.env
+
+# === Prisma ===
+prisma/dev.db
+/src/generated/prisma
+
+# === Misc ===
+.DS_Store
 npm-debug.log*
 yarn-debug.log*
 yarn-error.log*
 
-/src/generated/prisma
-
-node_modules/
-.env
-prisma/dev.db
-
+# === PnP (Yarn Plug'n'Play) ===
+.pnp
+.pnp.js
