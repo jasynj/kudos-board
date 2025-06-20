@@ -1,0 +1,31 @@
+import './Header.css';
+
+const Header = ({ onToggleForm, showForm }) => {
+  return (
+    <header className="header">
+      <div className="container header-container">
+        <div className="logo">
+          <h1>Kudos Board</h1>
+        </div>
+        <nav className="nav">
+          <ul>
+            <li><a href="#home">Home</a></li>
+            <li><a href="#about">About</a></li>
+            <li><a href="#contact">Contact</a></li>
+          </ul>
+        </nav>
+        <div className="user-actions">
+          <button
+            className="btn btn-primary"
+            onClick={onToggleForm}
+          >
+            {showForm ? 'Cancel' : 'Create Board'}
+          </button>
+          <button className="btn btn-secondary">Login</button>
+        </div>
+      </div>
+    </header>
+  );
+};
+
+export default Header;
