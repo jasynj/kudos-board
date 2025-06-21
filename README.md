@@ -2,7 +2,7 @@
 
 Submitted by: **JASON CHIMDINMA JASON**
 
-Deployed Application (**required**): [Kudos Board Deployed Site](ADD_LINK_HERE)
+Deployed Application (**required**): [Kudos Board Deployed Site](https://kudos-board-fe-rm0h.onrender.com)
 
 ### Application Features
 
@@ -136,28 +136,56 @@ Deployed Application (**required**): [Kudos Board Deployed Site](ADD_LINK_HERE)
 
 ### Walkthrough Video
 
-`TODO://` Add the embedded URL code to your animated app walkthrough below, `ADD_EMBEDDED_CODE_HERE`. Make sure the video or gif actually renders and animates when viewing this README. Ensure your walkthrough showcases the presence and/or functionality of all features you implemented above (check them off as you film!). Pay attention to any **VIDEO WALKTHROUGH SPECIAL INSTRUCTIONS** checkboxes listed above to ensure graders see the full functionality of your website! (🚫 Remove this paragraph after adding walkthrough video)
-
-`ADD_EMBEDDED_CODE_HERE`
+[WALKTHROUGH VIDEO](https://www.loom.com/share/add00e0bf40247caa1aa3997bcc746d1?sid=0fed624a-1588-41ab-8198-0cedc9de448d)
 
 ### Reflection
 
 * Did the topics discussed in your labs prepare you to complete the assignment? Be specific, which features in your weekly assignment did you feel unprepared to complete?
 
-Add your response here
+Yes, the labs definitely helped lay the groundwork—especially topics like API integration using service classes, managing state with useState/useEffect, and setting up routes with React Router. The Prisma and Express tutorials also gave a solid intro to backend development.
+That said, I initially struggled with managing the flow of data between the frontend and backend—especially when trying to update the UI dynamically after deleting boards or cards. Handling async API responses while maintaining a responsive and bug-free frontend took extra debugging and effort.
 
 * If you had more time, what would you have done differently? Would you have added additional features? Changed the way your project responded to a particular event, etc.
   
-Add your response here
+Built a comments feature on cards using modals.
+
+Used localStorage or context to track favorited or pinned cards.
+
+Improved error handling with toast messages or fallback UI.
 
 * Reflect on your project demo, what went well? Were there things that maybe didn't go as planned? Did you notice something that your peer did that you would like to try next time?
 
-Add your response here
+The demo went smoothly! Boards and cards rendered properly, filters worked, and I was proud of the search + category filtering combo. One small hiccup was the search input not clearing right away after deleting a board—it was a state bug I fixed later.
+
+One thing I admired from a peer’s project was how they animated card transitions and had a "recent activity" widget showing user actions. I'd love to experiment with something similar using animation libraries like framer-motion or even just React transitions.
+
 
 ### Open-source libraries used
 
-- Add any links to open-source libraries used in your project.
+React
+
+React Router
+
+Prisma
+
+Express
+
+GIPHY API
+
+Axios
+
+Vite
 
 ### Shout out
 
-Give a shout out to somebody from your cohort that especially helped you during your project. This can be a fellow peer, instructor, TA, mentor, etc.
+Massive thanks to:
+
+Felix Nuworsu – for helping me troubleshoot my Prisma issues
+
+Ameya Gawde (Intern Manager) – for the continuous encouragement and clarity
+
+Adam Chappell & Ishan Balar (Peer Mentors) – for helping me look through my code
+
+Jesus Perez (TA) and Michelle(Instructors)  – for answering every possible React or deployment question
+
+King Igbozuruike, Angel Balogun & Eniola Farinde – for being my accountability crew and pushing me to polish everything till the last day
