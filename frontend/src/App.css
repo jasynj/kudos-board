@@ -138,9 +138,7 @@
 }
 
 /* Link styles */
-.light-theme a {
-  color: var(--accent-primary);
-}
+
 
 .dark-theme a {
   color: #5dade2;
