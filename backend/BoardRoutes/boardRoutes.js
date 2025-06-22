@@ -16,9 +16,8 @@ router.post("/api/board/create", validateCreateBoard, async (req, res) => {
             data: {
                 title,
                 category,
-                author: author || "",
+                author : author ?? "",
                 image,
-                // cards: [],
             },
         });
 
@@ -73,7 +72,6 @@ router.delete("/api/board/delete", validateId, async (req, res) => {
     try {
         const { id } = req.body;
 
-        // Delete associated cards first if your schema requires it
         await prisma.card.deleteMany({
             where: { boardId: id },
         });

@@ -1,6 +1,7 @@
 const API_BASE_URL = import.meta.env.VITE_API_BASE_URL || 'http://localhost:3000/api';
 
 // Board API functions
+
 export const boardAPI = {
   // Get all boards
   getAllBoards: async () => {
@@ -77,6 +78,7 @@ export const boardAPI = {
 };
 
 // Card API functions
+
 export const cardAPI = {
   // Create a new card
   createCard: async (cardData) => {

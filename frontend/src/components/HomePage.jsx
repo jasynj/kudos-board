@@ -53,12 +53,10 @@ const HomePage = ({ boards, setBoards, showForm, setShowForm }) => {
     if (activeCategory === 'all') {
       return filtered;
     } else if (activeCategory === 'recent') {
-      // Sort by creation date (newest first) and take the first 6
       return [...filtered]
         .sort((a, b) => new Date(b.createdAt) - new Date(a.createdAt))
         .slice(0, 6);
     } else {
-      // Filter by specific category
       return filtered.filter(board => board.category === activeCategory);
     }
   }, [boards, activeCategory, searchQuery]);
@@ -74,6 +72,7 @@ const HomePage = ({ boards, setBoards, showForm, setShowForm }) => {
           activeCategory={activeCategory}
           onCategoryChange={handleCategoryChange}
         />
+
         {showForm && <BoardForm onSubmit={addBoard} />}
         <BoardGrid
           boards={filteredBoards}

@@ -19,13 +19,11 @@ export const ThemeProvider = ({ children }) => {
     if (savedTheme && (savedTheme === 'light' || savedTheme === 'dark')) {
       setTheme(savedTheme);
     } else {
-      // Default to light mode
       setTheme('light');
       localStorage.setItem('kudos-board-theme', 'light');
     }
   }, []);
 
-  // Apply theme to document body
   useEffect(() => {
     document.body.className = theme === 'dark' ? 'dark-theme' : 'light-theme';
   }, [theme]);

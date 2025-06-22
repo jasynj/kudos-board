@@ -13,14 +13,14 @@ const BoardView = ({ boards, setBoards }) => {
   const [newCard, setNewCard] = useState({
     title: '',
     description: '',
-    gifUrl: 'https://via.placeholder.com/150?text=GIF'
+    gifUrl: ''
   });
   const [gifSearch, setGifSearch] = useState('');
   const [gifResults, setGifResults] = useState([]);
   const [showGifResults, setShowGifResults] = useState(false);
   const [searchingGifs, setSearchingGifs] = useState(false);
 
-  // Fetch board data from backend
+  // Fetch board data
   useEffect(() => {
     const fetchBoard = async () => {
       try {
@@ -136,7 +136,7 @@ const BoardView = ({ boards, setBoards }) => {
         cards: [...(prevBoard.cards || []), createdCard]
       }));
 
-      // Also update the boards array if needed
+      // Update the boards array if needed
       setBoards(prevBoards => prevBoards.map(board => {
         if (board.id === parseInt(boardId)) {
           return {

@@ -2,7 +2,6 @@ const GIPHY_API_KEY = import.meta.env.VITE_GIF_API_KEY;
 const GIPHY_BASE_URL = 'https://api.giphy.com/v1/gifs';
 
 export const giphyAPI = {
-  // Search for GIFs
   searchGifs: async (query, limit = 6) => {
     try {
       const response = await fetch(
